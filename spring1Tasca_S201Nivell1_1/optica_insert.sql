@@ -25,6 +25,28 @@ VALUES
 (5,2.75,2.15,'blue','red','plastic','white',88.00),
 (6,3.84,4.15,'black','red','metal','green',99.00);
 
+INSERT INTO customers(customer_name,street,`number`,`floor`,door,city,postcode,country,telephone,email,registration_date,recommended_by)
+VALUES
+('Luis','santos','79','23','A','Barcelona','08237',DEFAULT,'693258664','luis@sant.com','2012-05-13',NULL),
+('Jorge','via julia','233','15','C','Valencia','46125',DEFAULT,'63858636','jorge@gmail.com','2013-08-19',NULL),
+('Maira','gracia','325',NULL,'3','Madrid','28273',DEFAULT,'612368621','maria@gmail.com','2013-10-19',NULL),
+('Ana','rambla','15',NULL,'1203','Barcelona','08273',DEFAULT,'612368621','ann@gmail.com','2014-07-12',1),
+('Pedro','font','117',NULL,NULL,'Barcelona','08273',DEFAULT,'612368621','pedro@gmail.com','2014-09-07',2);
+
+NSERT INTO employees(employee_name,dni,telephone,hire_date)
+VALUES
+('Jordi','15008127L','638001474','2007-01-14'),
+('Sandra','36218003A','670234144','2008-11-05'),
+('Carmen','48251396B','683521469','2009-08-11');
+
+INSERT INTO sales(glass_id,customer_id,employee_id)
+VALUES
+(1,1,2),
+(2,2,1),
+(3,3,3),
+(4,2,3),
+(5,4,1),
+(6,5,2);
 
 
 
