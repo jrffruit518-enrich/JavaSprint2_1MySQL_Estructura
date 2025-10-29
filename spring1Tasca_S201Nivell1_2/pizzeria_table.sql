@@ -39,7 +39,6 @@ order_id INT AUTO_INCREMENT PRIMARY KEY,
 customer_id  INT NOT NULL,
 order_datetime DATETIME NOT NULL,
 is_delivery BOOLEAN(ture,false ) NOT NULL,
-Order_Details?quantity INT NOT NULL,
 total_price DECIMAL(20,2) NOT NULL,
 store_id INT NOT NULL,
 employee_id INT NOT NULL,
@@ -63,9 +62,7 @@ product_type ENUM('Pizza','Hamburger','Beverage')
 # 6
 CREATE TABLE IF NOT EXISTS pizza_categories(
 category_id INT AUTO_INCREMENT PRIMARY KEY,
-category_name VARCHAR(50) NOT NULL,
-pizza_id INT NOT NULL,
-FOREIGN KEY (pizza_id ) REFERENCES pizzas (pizza_id )
+category_name VARCHAR(50) NOT NULL
 );
 
 # 7
@@ -97,7 +94,9 @@ order_detail_id INT AUTO_INCREMENT PRIMARY KEY,
 order_id INT NOT NULL,
 product_id INT NOT NULL,
 quantity INT NOT NULL,
-unit_price INT NOT NULL,
-FOREIGN KEY(store_id) REFERENCES stores (store_id),
+unit_price DECIMAL(10,2) NOT NULL,
+subtotal_price INT NOT NULL
+FOREIGN KEY (order_id) REFERENCES orders(order_id),
+FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
 
