@@ -62,15 +62,10 @@ CREATE TABLE IF NOT EXISTS sales(
     customer_id INT NOT NULL,
     employee_id INT NOT NULL,
     sale_date DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    invoice_number VARCHAR(20) NOT NULL UNIQUE,
     FOREIGN KEY(glass_id) REFERENCES glasses (glass_id),
     FOREIGN KEY(customer_id) REFERENCES customers (customer_id),
     FOREIGN KEY(employee_id) REFERENCES employees (employee_id)
 );
-USE optica;
-SHOW DATABASES;
-SELECT DATABASE();
-DESC glasses;
-SHOW TABLES;
-SELECT *
-FROM glasses
-LIMIT 10;
+
+

@@ -216,13 +216,13 @@ INSERT INTO employees(employee_name, dni, telephone, hire_date)
 VALUES ('Jordi', '15008127L', '638001474', '2007-01-14'),
     ('Sandra', '36218003A', '670234144', '2008-11-05'),
     ('Carmen', '48251396B', '683521469', '2009-08-11');
-INSERT INTO sales(glass_id, customer_id, employee_id)
-VALUES (1, 1, 2),
-    (2, 2, 1),
-    (3, 3, 3),
-    (4, 2, 3),
-    (5, 4, 1),
-    (6, 5, 2);
-SHOW TABLES;
-SELECT *
-FROM sales;
+    
+INSERT INTO sales(glass_id, customer_id, employee_id,invoice_number,sale_date)
+VALUES (1, 1, 2,'F001','2025-05-01'),
+    (2, 2, 1,'F002','2025-05-02'),
+    (3, 3, 3,'F003','2025-05-15'),
+    (4, 2, 3,'F004','2025-05-18'),
+    (5, 4, 1,'F005','2025-05-19'),
+    (6, 5, 2,'F006','2025-05-22');
+    
+ 

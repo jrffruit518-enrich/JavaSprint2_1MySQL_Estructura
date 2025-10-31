@@ -3,7 +3,7 @@ USE pizzeria;
 # 1
 CREATE TABLE IF NOT EXISTS provinces(
     province_id INT AUTO_INCREMENT PRIMARY KEY,
-    province_name VARCHAR(50) NOT NULL,
+    province_name VARCHAR(50) NOT NULL
 );
 # 2
 CREATE TABLE IF NOT EXISTS cities(
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS orders (
     order_datetime DATETIME NOT NULL,
     is_delivery TINYINT(1) NOT NULL,
     -- 1= delivery  0= pickup
-    total_price DECIMAL(10, 2) NOT NULL,
+    total_price DECIMAL(10, 2) DEFAULT 0,
     store_id INT NOT NULL,
     delivery_employee_id INT NULL,
     -- Solo para entrega a domicilio
@@ -95,3 +95,4 @@ CREATE TABLE IF NOT EXISTS order_details (
     FOREIGN KEY (order_id) REFERENCES orders(order_id),
     FOREIGN KEY (product_id) REFERENCES products(product_id)
 );
+
