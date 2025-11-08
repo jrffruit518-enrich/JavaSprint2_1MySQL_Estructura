@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: pizzeria_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: pizzeria
+      MYSQL_USER: pizzeria_user
+      MYSQL_PASSWORD: pizzeria123
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./pizzeria_table.sql:/docker-entrypoint-initdb.d/1-table.sql
+      - ./pizzeria_insert.sql:/docker-entrypoint-initdb.d/2-insert.sql
+      - mysql-data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  adminer:
+    image: adminer
+    container_name: pizzeria_adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  mysql-data:
